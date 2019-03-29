@@ -51,6 +51,8 @@ const Total = (props)=> {
   )
 }
 
+
+
 const Part = (props)=> {
   return (
     <div>
