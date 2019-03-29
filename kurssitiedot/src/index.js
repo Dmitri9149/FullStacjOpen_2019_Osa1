@@ -3,27 +3,33 @@ import ReactDOM from 'react-dom'
 
 
 const App = () => {
-    // const-määrittelyt
   const course = 'Half Stack -sovelluskehitys'
-  const part1 = 'Reactin perusteet'
-  const exercises1 = 10
-  const part2 = 'Tiedonvälitys propseilla'
-  const exercises2 = 7
-  const part3 = 'Komponenttien tila'
-  const exercises3 = 14
-  
+  const part1 = {
+    name: 'Reactin perusteet',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Tiedonvälitys propseilla',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'Komponenttien tila',
+    exercises: 14
+  }
+
+
   return (
     <div>
       <Header course={course} />
       <Content 
-        part1 = {part1}  exercises1 = {exercises1}
-        part2 = {part2}  exercises2 = {exercises2}
-        part3 = {part3}  exercises3 = {exercises3}
+        part1 = {part1.name}  exercises1 = {part1.exercises}
+        part2 = {part2.name}  exercises2 = {part2.exercises}
+        part3 = {part3.name}  exercises3 = {part3.exercises}
        />
       
-      <Total exercises1 = {exercises1} 
-        exercises2 = {exercises2}
-        exercises3 = {exercises3}
+      <Total exercises1 = {part1.exercises} 
+        exercises2 = {part2.exercises}
+        exercises3 = {part3.exercises}
       />            
     </div>
   )
