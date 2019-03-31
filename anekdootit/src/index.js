@@ -20,9 +20,12 @@ const App = (props) => {
     setVotes(newClick)
   }
 
+  var maxIndex = votes.indexOf(Math.max(...votes));
+
   return (
     <div>
         <div>
+            <Head text = "Anecdote of the day"/>
             <p>
                 {props.anecdotes[selected]}
             </p>
@@ -41,6 +44,12 @@ const App = (props) => {
             text = {"next anecdote"}
         />
 
+        <Head text = "Anecdote with most votes"/>
+        <p>
+            {props.anecdotes[maxIndex]}
+        </p>
+
+
     </div>
   )
 }
@@ -58,7 +67,16 @@ const Button = ({ handleClick, text }) => (
     <button onClick={handleClick}>
       {text}
     </button>
-  )
+)
+
+const Head  = ({text}) => (
+    <h1>
+        {text}
+    </h1>
+)
+
+        
+
 
 ReactDOM.render(
   <App anecdotes={anecdotes} />,
