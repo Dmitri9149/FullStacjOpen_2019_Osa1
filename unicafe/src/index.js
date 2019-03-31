@@ -53,6 +53,13 @@ const App = () => {
 }
 
 const Statistics = ({good, neutral, bad, all}) => {
+  if (all ==0) {
+    return (
+      <div>
+        Ei yhtään palautetta annettu
+      </div>
+    )
+  }
   return (
     <div>
 
