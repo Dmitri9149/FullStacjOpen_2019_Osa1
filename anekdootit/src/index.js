@@ -3,23 +3,41 @@ import ReactDOM from 'react-dom'
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-
+  const toHelp = Array.apply(null, new Array(anecdotes.length))
+    .map(Number.prototype.valueOf,0)
+  const [votes, setVotes] = useState(toHelp)
   const randominBetween = (min, max) => {
     return  Math.floor(Math.random() * max) + min 
   }
 
-  const klick = (min, max) => (
+  const klickAnecdtChoice = (min, max) => {
       setSelected(randominBetween(min,max))
-  )
+  }
+
+  const klickVote = ()=> {
+    const newClick = [...votes]
+    newClick[selected] +=1
+    setVotes(newClick)
+  }
 
   return (
     <div>
         <div>
-            {props.anecdotes[selected]}
+            <p>
+                {props.anecdotes[selected]}
+            </p>
+            <p>
+                "has " {votes[selected]} " votes" 
+            </p>
         </div>
 
         <Button 
-            handleClick = {() => klick (0,anecdotes.length)}
+            handleClick = {klickVote}
+            text = {"vote"}
+        />        
+
+        <Button 
+            handleClick = {() => klickAnecdtChoice (0,anecdotes.length)}
             text = {"next anecdote"}
         />
 
