@@ -66,21 +66,25 @@ const Statistics = ({good, neutral, bad, all}) => {
   }
   return (
     <div>
-      <Statistic text = "hyvä " value = {good} />
-      <Statistic text = "neutraali " value = {neutral} />
-      <Statistic text = "huono " value = {bad} />
-      <Statistic text = "yhteensä " value = {all} />
-      <Statistic text = "keskiarvo " value = {(good - bad)/all} />
-      <Statistic text = "positiivissa " value = {(good/all)*100 + "%"}/>      
+      <table>
+        <tbody>
+          <Statistic text = "hyvä " value = {good} />
+          <Statistic text = "neutraali " value = {neutral} />
+          <Statistic text = "huono " value = {bad} />
+          <Statistic text = "yhteensä " value = {all} />
+          <Statistic text = "keskiarvo " value = {(good - bad)/all} />
+          <Statistic text = "positiivissa " value = {(good/all)*100 + "%"}/>
+        </tbody>
+      </table>
     </div>
   ) 
 }
 
 const Statistic = ({text, value}) => (
-  <div>
-    {text}
-    {value}
-  </div>
+  <tr>
+    <td>{text}</td>
+    <td>{value}</td>
+  </tr>
 )
 
 const Button = ({handleClick, text})=> (
