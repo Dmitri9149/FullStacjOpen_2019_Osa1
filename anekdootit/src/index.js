@@ -19,7 +19,7 @@ const App = (props) => {
         </div>
 
         <Button 
-            handleClick = {() => klick (0,5)}
+            handleClick = {() => klick (0,anecdotes.length)}
             text = {"next anecdote"}
         />
 
