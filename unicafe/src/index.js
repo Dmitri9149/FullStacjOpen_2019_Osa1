@@ -26,26 +26,29 @@ const App = () => {
 
   return (
     <div>
-        <Heading nimi = "anna palautetta" />
 
-        <button onClick={handleGoodClick}>
-          good
-        </button>
-        <button onClick={handleNeutralClick}>
-          neutral
-        </button>
-        <button onClick={handleBadClick}>
-          bad
-        </button>
+      <Heading nimi = "anna palautetta" />
 
-        <Heading nimi = "statistiikka" />
+      <Button 
+        handleClick = {handleGoodClick}
+        text = {good}
+      />
+      <Button 
+        handleClick = {handleNeutralClick}
+        text = {neutral}
+      />
+      <Button 
+        handleClick = {handleBadClick}
+        text = {bad}
+      />
+      <Heading nimi = "statistiikka" />
 
-    <Statistics 
-      good = {good}
-      bad = {bad}
-      neutral={neutral}
-      all={all}
-    />
+      <Statistics 
+        good = {good}
+        bad = {bad}
+        neutral={neutral}
+        all={all}
+      />
 
                 
     </div>
@@ -53,7 +56,7 @@ const App = () => {
 }
 
 const Statistics = ({good, neutral, bad, all}) => {
-  if (all ==0) {
+  if (all === 0) {
     return (
       <div>
         Ei yhtään palautetta annettu
@@ -72,6 +75,13 @@ const Statistics = ({good, neutral, bad, all}) => {
     </div>
   ) 
 }
+
+const Button = ({handleClick, text})=> (
+  <button onClick = {handleClick}>
+    {text}
+  </button>
+)
+
 
 const Heading = ({nimi}) => <h1>{nimi}</h1> 
 
