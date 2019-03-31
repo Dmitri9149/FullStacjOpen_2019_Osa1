@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
+import { BADRESP } from 'dns';
 
 const App = () => {
   // tallenna napit omaan tilaansa
@@ -31,15 +32,15 @@ const App = () => {
 
       <Button 
         handleClick = {handleGoodClick}
-        text = {good}
+        text = "hyvä"
       />
       <Button 
         handleClick = {handleNeutralClick}
-        text = {neutral}
+        text = "neutraali"
       />
       <Button 
         handleClick = {handleBadClick}
-        text = {bad}
+        text = "huono"
       />
       <Heading nimi = "statistiikka" />
 
@@ -65,16 +66,22 @@ const Statistics = ({good, neutral, bad, all}) => {
   }
   return (
     <div>
-
-      <p>hyvä {good}</p>
-      <p>neutraali {neutral}</p>
-      <p>huono {bad}</p>
-      <p>yhteensä {all}</p>
-      <p>keskiarvo {(good - bad)/all}</p>
-      <p>positiivissa {(good/all)*100} %</p>    
+      <Statistic text = "hyvä " value = {good} />
+      <Statistic text = "neutraali " value = {neutral} />
+      <Statistic text = "huono " value = {bad} />
+      <Statistic text = "yhteensä " value = {all} />
+      <Statistic text = "keskiarvo " value = {(good - bad)/all} />
+      <Statistic text = "positiivissa " value = {(good/all)*100 + "%"}/>      
     </div>
   ) 
 }
+
+const Statistic = ({text, value}) => (
+  <div>
+    {text}
+    {value}
+  </div>
+)
 
 const Button = ({handleClick, text})=> (
   <button onClick = {handleClick}>
