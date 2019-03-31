@@ -6,18 +6,35 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
+  const [all, setAll] = useState(0)
+
+  const handleGoodClick = ()=> {
+    setAll(all + 1)
+    setGood(good + 1)
+  }
+
+  const handleNeutralClick = ()=> {
+    setAll(all + 1)
+    setNeutral(neutral + 1)
+  }
+
+  const handleBadClick = ()=> {
+    setAll(all + 1)
+    setBad(bad + 1)
+  }  
+
 
   return (
     <div>
         <Heading nimi = "anna palautetta" />
 
-        <button onClick={() => setGood(good + 1)}>
+        <button onClick={handleGoodClick}>
           good
         </button>
-        <button onClick={() => setNeutral(neutral + 1)}>
+        <button onClick={handleNeutralClick}>
           neutral
         </button>
-        <button onClick={() => setBad(bad + 1)}>
+        <button onClick={handleBadClick}>
           bad
         </button>
 
@@ -26,10 +43,14 @@ const App = () => {
         <p>hyvä {good}</p>
         <p>neutraali {neutral}</p>
         <p>huono {bad}</p>
+        <p>yhteensä {all}</p>
+        <p>keskiarvo {(good - bad)/all}</p>
+        <p>positiivissa {(good/all)*100} %</p>
                 
     </div>
   )
 }
+
 
 const Heading = ({nimi}) => <h1>{nimi}</h1> 
 
