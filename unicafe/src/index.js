@@ -40,17 +40,31 @@ const App = () => {
 
         <Heading nimi = "statistiikka" />
 
-        <p>hyvä {good}</p>
-        <p>neutraali {neutral}</p>
-        <p>huono {bad}</p>
-        <p>yhteensä {all}</p>
-        <p>keskiarvo {(good - bad)/all}</p>
-        <p>positiivissa {(good/all)*100} %</p>
+    <Statistics 
+      good = {good}
+      bad = {bad}
+      neutral={neutral}
+      all={all}
+    />
+
                 
     </div>
   )
 }
 
+const Statistics = ({good, neutral, bad, all}) => {
+  return (
+    <div>
+
+      <p>hyvä {good}</p>
+      <p>neutraali {neutral}</p>
+      <p>huono {bad}</p>
+      <p>yhteensä {all}</p>
+      <p>keskiarvo {(good - bad)/all}</p>
+      <p>positiivissa {(good/all)*100} %</p>    
+    </div>
+  ) 
+}
 
 const Heading = ({nimi}) => <h1>{nimi}</h1> 
 
